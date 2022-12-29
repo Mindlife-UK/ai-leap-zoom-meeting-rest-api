@@ -33,10 +33,13 @@ app.get("/oauth", (req, res, next) => {
       {},
       httpOptions2
     )
-    .then((authRes) => {
-      console.log(authRes);
-      // this.addZoomMeeting();
-    });
+    .then(res => {
+      console.log(`Status: ${res.status}`)
+      console.log('Body: ', res.data)
+    })
+    .catch(err => {
+      console.error(err)
+    })
 });
 
 app.listen(process.env.PORT || 3000);
