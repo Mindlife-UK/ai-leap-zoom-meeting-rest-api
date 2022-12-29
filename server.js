@@ -16,10 +16,9 @@ app.use(cors({ origin: "*" }));
 console.log("heroku start");
 
 app.get("/oauth/:code", (req, res, next) => {
-
   console.log(req);
   console.log("heroku oauth");
-  
+
   const httpOptions2 = {
     headers: {
       Authorization:
@@ -33,9 +32,9 @@ app.get("/oauth/:code", (req, res, next) => {
   axios
     .post(
       "https://zoom.us/oauth/token?grant_type=authorization_code&code=" +
-        code +
+        req.params.code +
         "&redirect_uri=http://localhost:4200/protocols/create",
-      {code:code},
+      { code: req.params.code },
       httpOptions2
     )
     .then((res) => {
