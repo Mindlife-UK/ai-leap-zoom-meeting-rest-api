@@ -14,6 +14,8 @@ app.use(compression()); //Compress all routes
 app.use(cors({ origin: "*" }));
 
 app.get("/oauth", (req, res, next) => {
+
+  console.log( 'heroku oauth')
   const httpOptions2 = {
     headers: {
       Authorization:
