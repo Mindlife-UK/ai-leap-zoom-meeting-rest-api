@@ -10,12 +10,9 @@ ai-leap-zoom-meeting-rest-api
 #### Routes ⚡
 | Routes | HTTP Methods| Description
 |:------- |:---------------|:--------------
-| /tea      | GET                  | Displays all tea
-| /tea      | POST               | Creates a new tea
-| /tea      | DELETE            | Deletes all tea
-|/tea/:name| GET     | Displays a specific tea, given its name
-|/tea/:name| POST  | Adds a comment to a specific tea, given its name
-|/tea/:name| DELETE | Deletes a specific tea, given its name
+| /oauth      | GET                  | Displays all tea
+| /oauth      | POST               | Creates a new tea
+
 	
 ### Technologies
 Project is created with:
