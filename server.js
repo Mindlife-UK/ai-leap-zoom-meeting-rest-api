@@ -16,6 +16,8 @@ app.use(cors({ origin: "*" }));
 console.log("heroku start");
 
 app.get("/oauth", (req, res, next) => {
+
+  console.log(req)
   console.log("heroku oauth");
   const httpOptions2 = {
     headers: {
