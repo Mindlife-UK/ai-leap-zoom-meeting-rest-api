@@ -13,9 +13,6 @@ app.use(compression()); //Compress all routes
 
 app.use(cors({ origin: "*" }));
 
-app.use(express.json()); //parses incoming requests as JSON
-app.use("/", routes);
-
 app.get("/oauth", (req, res, next) => {
  res.json(["Tony","Lisa","Michael","Ginger","Food"]);
 });
