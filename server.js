@@ -1,5 +1,4 @@
 const express = require("express");
-const mongoose = require("mongoose");
 const helmet = require("helmet");
 const cors = require("cors");
 const compression = require("compression");
@@ -13,9 +12,11 @@ app.use(compression()); //Compress all routes
 
 app.use(cors({ origin: "*" }));
 
-app.get("/oauth", (req, res, next) => {
+console.log("heroku start");
 
-  console.log( 'heroku oauth')
+
+app.get("/oauth", (req, res, next) => {
+  console.log("heroku oauth");
   const httpOptions2 = {
     headers: {
       Authorization:
@@ -25,7 +26,6 @@ app.get("/oauth", (req, res, next) => {
       "Content-Type": "application/x-www-form-urlencoded",
     },
   };
-  res.json(["Tony", "Lisa", "Michael", "Ginger", "Food"]);
 
   axios
     .post(
@@ -35,13 +35,14 @@ app.get("/oauth", (req, res, next) => {
       {},
       httpOptions2
     )
-    .then(res => {
-      console.log(`Status: ${res.status}`)
-      console.log('Body: ', res.data)
+    .then((res) => {
+      console.log(`Status: ${res.status}`);
+      console.log("Body: ", res.data);
+      res.json(res.data);
     })
-    .catch(err => {
-      console.error(err)
-    })
+    .catch((err) => {
+      console.error(err);
+    });
 });
 
 app.listen(process.env.PORT || 3000);
