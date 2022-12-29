@@ -37,10 +37,10 @@ app.get("/oauth/:code", (req, res, next) => {
       { code: req.params.code },
       httpOptions2
     )
-    .then((res) => {
-      console.log(`Status: ${res.status}`);
-      console.log("Body: ", res.data);
-      res.json(res.data);
+    .then((result) => {
+      console.log(`Status: ${result.status}`);
+      console.log("Body: ", result.data);
+      res.json(result.data);
     })
     .catch((err) => {
       console.error(err);
