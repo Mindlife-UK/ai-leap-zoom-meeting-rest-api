@@ -42,7 +42,7 @@ document.querySelector(".dropdown-toggle").addEventListener("click",()=>{
 })
 
 async function getAll(){
-    const response = await fetch('https://tapi.onrender.com/tea');
+    const response = await fetch('https://ai-leap-zoom-meeting-rest-api.herokuapp.com/tea');
     const data = await response.json();
     display.insertAdjacentHTML("beforeend","<pre>" + JSON.stringify(data, null, 2) + "</pre>");
 }
@@ -51,7 +51,7 @@ function getOne(){
   display.insertAdjacentHTML("beforeend", '<br/><input type="text" id="getOne" name="name" placeholder="Tea name"><button type="button" class="form-btn" id="oneTea">Get My Tea!</button>')
 
   document.getElementById("oneTea").addEventListener("click",async ()=>{
-    const response = await fetch('https://tapi.onrender.com/tea/' + document.getElementById("getOne").value);
+    const response = await fetch('https://ai-leap-zoom-meeting-rest-api.herokuapp.com/tea/' + document.getElementById("getOne").value);
     const data = await response.json();
     display.insertAdjacentHTML("beforeend","<pre>" + JSON.stringify(data, null, 2) + "</pre>");
   })
