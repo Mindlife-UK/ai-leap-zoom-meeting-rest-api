@@ -1,5 +1,5 @@
 const express = require("express");
-const helmet = require("helmet");
+// const helmet = require("helmet");
 const cors = require("cors");
 // const compression = require("compression");
 const axios = require("axios");
@@ -32,7 +32,7 @@ app.get("/oauth", (req, res, next) => {
   axios
     .post(
       "https://zoom.us/oauth/token?grant_type=authorization_code&code=" +
-        params.code +
+        // params.code +
         "&redirect_uri=http://localhost:4200/protocols/create",
       {},
       httpOptions2
