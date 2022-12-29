@@ -14,13 +14,14 @@ app.use(compression()); //Compress all routes
 app.use(cors({ origin: "*" }));
 
 app.get("/oauth", (req, res, next) => {
-
   const httpOptions2 = {
-    headers: new HttpHeaders({
+    headers: {
       Authorization:
         "Basic RWRSN3JXUklSd0dkUXlxaG9YUGcydzpqN09SUUo2dHlIc2gyM215Y2hDMkFPcmRLb3RZcTN2Mw==",
-      "Content-Type": "application/x-www-form-urlencoded"
-    })
+      authorization:
+        "Basic RWRSN3JXUklSd0dkUXlxaG9YUGcydzpqN09SUUo2dHlIc2gyM215Y2hDMkFPcmRLb3RZcTN2Mw==",
+      "Content-Type": "application/x-www-form-urlencoded",
+    },
   };
   res.json(["Tony", "Lisa", "Michael", "Ginger", "Food"]);
 
