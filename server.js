@@ -44,6 +44,7 @@ app.get("/oauth", (req, res, next) => {
     })
     .catch((err) => {
       console.error(err);
+      res.json('error');
     });
 });
 
