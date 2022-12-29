@@ -16,8 +16,7 @@ app.use(cors({ origin: "*" }));
 console.log("heroku start");
 
 app.get("/oauth", (req, res, next) => {
-
-  console.log(req)
+  console.log(req);
   console.log("heroku oauth");
   const httpOptions2 = {
     headers: {
@@ -44,7 +43,7 @@ app.get("/oauth", (req, res, next) => {
     })
     .catch((err) => {
       console.error(err);
-      res.json('error');
+      throw new Error(err);
     });
 });
 
