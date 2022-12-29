@@ -1,15 +1,15 @@
 const express = require("express");
 const helmet = require("helmet");
 const cors = require("cors");
-const compression = require("compression");
+// const compression = require("compression");
 const axios = require("axios");
 
 require("dotenv").config();
 
 const app = express();
 
-app.use(helmet());
-app.use(compression()); //Compress all routes
+// app.use(helmet());
+// app.use(compression()); //Compress all routes
 
 app.use(cors({ origin: "*" }));
 
