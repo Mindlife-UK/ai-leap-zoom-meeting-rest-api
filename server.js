@@ -57,9 +57,9 @@ app.post("/users/:access_token", (req, res, next) => {
     hostname: "api.zoom.us",
     port: null,
     path: `/v2/users?access_token=${token}`,
-    headers: new HttpHeaders({
-      "content-type": "application/json"
-    })
+    headers: {
+      "content-type": "application/json",
+    },
   };
 
   const data = {
@@ -72,10 +72,10 @@ app.post("/users/:access_token", (req, res, next) => {
       type: 1,
       feature: {
         zoom_phone: true,
-        zoom_one_type: 16
+        zoom_one_type: 16,
       },
-      plan_united_type: "1"
-    }
+      plan_united_type: "1",
+    },
   };
 
   axios
