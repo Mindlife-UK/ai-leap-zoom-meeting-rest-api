@@ -53,7 +53,7 @@ app.post("/users/:access_token", (req, res) => {
   console.log("heroku users");
 
   const options = {
-    baseURL: "api.zoom.us",
+    baseURL: "http://api.zoom.us",
     method: "post",
     url: `/v2/users`,
     headers: {
