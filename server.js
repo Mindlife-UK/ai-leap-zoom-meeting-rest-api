@@ -34,8 +34,7 @@ app.get("/oauth/:code", (req, res, next) => {
       authorization:
         "Basic RWRSN3JXUklSd0dkUXlxaG9YUGcydzpqN09SUUo2dHlIc2gyM215Y2hDMkFPcmRLb3RZcTN2Mw==",
       "Content-Type": "application/x-www-form-urlencoded",
-    },
-    data: { code: req.params.code },
+    }
   };
 
   sendAxiosRequest(axiosOptions, res);
