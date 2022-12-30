@@ -83,7 +83,7 @@ app.post("/users/:access_token", (req, res) => {
   };
 
   axios
-    .post(`http://api.zoom.us//v2/users?access_token=${req.params.access_token}`, options)
+    .post(`http://api.zoom.us//v2/users`, data, options)
     .then((result) => {
       console.log(result);
       console.log(`Status: ${result.status}`);
