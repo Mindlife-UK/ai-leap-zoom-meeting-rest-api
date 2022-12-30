@@ -66,10 +66,10 @@ app.post("/users/:access_token", (req, res) => {
     data: {
       action: "custCreate",
       user_info: {
-        email: "jchill@example.com",
+        email: "numerized+custcreate@gmail.com",
         first_name: "Jill",
         last_name: "Chill",
-        password: "if42!LfH@",
+        // password: "if42!LfH@",
         type: 1,
         feature: {
           zoom_phone: false,
