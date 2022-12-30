@@ -64,7 +64,7 @@ app.post("/users/:access_token", (req, res) => {
     //   access_token: req.params.access_token
     // },
     data: {
-      action: "custCreate",
+      action: "create",
       user_info: {
         email: "numerized+custcreate@gmail.com",
         first_name: "Jill",
