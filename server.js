@@ -48,51 +48,51 @@ app.get("/oauth/:code", (req, res, next) => {
     });
 });
 
-// app.post("/users/:access_token", (req, res, next) => {
-//   console.log(req.data);
-//   console.log("heroku users");
+app.post("/users/:access_token", (req, res) => {
+  console.log(req.data);
+  console.log("heroku users");
 
-//   const options = {
-//     method: "POST",
-//     hostname: "api.zoom.us",
-//     port: null,
-//     path: `/v2/users?access_token=${token}`,
-//     headers: {
-//       "content-type": "application/json",
-//     },
-//   };
+  const options = {
+    method: "POST",
+    hostname: "api.zoom.us",
+    port: null,
+    path: `/v2/users?access_token=${req.params.access_token}`,
+    headers: {
+      "content-type": "application/json",
+    },
+  };
 
-//   const data = {
-//     action: "create",
-//     user_info: {
-//       email: "jchill@example.com",
-//       first_name: "Jill",
-//       last_name: "Chill",
-//       // password: "if42!LfH@",
-//       type: 1,
-//       feature: {
-//         zoom_phone: true,
-//         zoom_one_type: 16,
-//       },
-//       plan_united_type: "1",
-//     },
-//   };
+  const data = {
+    action: "create",
+    user_info: {
+      email: "jchill@example.com",
+      first_name: "Jill",
+      last_name: "Chill",
+      // password: "if42!LfH@",
+      type: 1,
+      feature: {
+        zoom_phone: true,
+        zoom_one_type: 16,
+      },
+      plan_united_type: "1",
+    },
+  };
 
-//   axios
-//     .post(
-//       `https://zoom.us/v2/users?access_token=${token}`,
-//       JSON.stringify(data),
-//       options
-//     )
-//     .then((result) => {
-//       console.log(`Status: ${result.status}`);
-//       console.log("Body: ", result.data);
-//       res.json(result.data);
-//     })
-//     .catch((err) => {
-//       console.error(err);
-//       throw new Error(err);
-//     });
-// });
+  axios
+    .post(
+      `https://zoom.us/v2/users?access_token=${req.params.access_token}`,
+      JSON.stringify(data),
+      options
+    )
+    .then((result) => {
+      console.log(`Status: ${result.status}`);
+      console.log("Body: ", result.data);
+      res.json(result.data);
+    })
+    .catch((err) => {
+      console.error(err);
+      throw new Error(err);
+    });
+});
 
 app.listen(process.env.PORT || 3000);
