@@ -21,20 +21,18 @@ app.get("/oauth/:code", (req, res, next) => {
 
   const axiosOptions = {
     baseURL: "https://zoom.us",
-    method: "get",
+    method: "post",
     url: `/oauth/token`,
     params: {
-      grant_type: 'authorization_code',
+      grant_type: "authorization_code",
       code: req.params.code,
       redirect_uri: "http://localhost:4200/protocols/create",
     },
     headers: {
       Authorization:
         "Basic RWRSN3JXUklSd0dkUXlxaG9YUGcydzpqN09SUUo2dHlIc2gyM215Y2hDMkFPcmRLb3RZcTN2Mw==",
-      authorization:
-        "Basic RWRSN3JXUklSd0dkUXlxaG9YUGcydzpqN09SUUo2dHlIc2gyM215Y2hDMkFPcmRLb3RZcTN2Mw==",
       "Content-Type": "application/x-www-form-urlencoded",
-    }
+    },
   };
 
   sendAxiosRequest(axiosOptions, res);
