@@ -24,7 +24,7 @@ app.get("/oauth/:code", (req, res, next) => {
     method: "get",
     url: `/oauth/token`,
     params: {
-      grant_type: authorization_code,
+      grant_type: 'authorization_code',
       code: req.params.code,
       redirect_uri: "http://localhost:4200/protocols/create",
     },
