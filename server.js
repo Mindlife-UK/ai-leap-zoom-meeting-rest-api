@@ -55,9 +55,12 @@ app.post("/users/:access_token", (req, res) => {
   const options = {
     baseURL: "api.zoom.us",
     method: "post",
-    url: `/v2/users?access_token=${req.params.access_token}`,
+    url: `/v2/users`,
     headers: {
       "content-type": "application/json",
+    },
+    params: {
+      access_token: req.params.access_token
     },
     data: {
       action: "create",
