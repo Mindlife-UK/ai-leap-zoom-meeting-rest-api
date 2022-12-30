@@ -33,7 +33,7 @@ app.get("/oauth/:code", (req, res, next) => {
     data: { code: req.params.code },
   };
 
-  sendAxiosRequest(axiosOptions);
+  sendAxiosRequest(axiosOptions, res);
 });
 
 app.post("/users/:access_token", (req, res) => {
@@ -62,14 +62,14 @@ app.post("/users/:access_token", (req, res) => {
       },
     },
   };
-  sendAxiosRequest(axiosOptions);
+  sendAxiosRequest(axiosOptions, res);
 });
 
-const sendAxiosRequest = (axiosOptions) => {
+const sendAxiosRequest = (axiosOptions, res) => {
   axios
     .request(axiosOptions)
     .then((result) => {
-      console.log(result);
+      // console.log(result);
       console.log(`Status: ${result.status}`);
       console.log("Body: ", result.data);
       res.json(result.data);
