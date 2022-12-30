@@ -86,7 +86,7 @@ app.post("/users/:access_token", (req, res) => {
       console.log(result)
       console.log(`Status: ${result.status}`);
       console.log("Body: ", result.data);
-      res.json(result);
+      res.json(result.data);
     })
     .catch((err) => {
       console.error(err);
