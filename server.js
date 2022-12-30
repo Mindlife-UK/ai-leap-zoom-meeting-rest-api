@@ -16,7 +16,7 @@ app.use(cors({ origin: "*" }));
 console.log("heroku start");
 
 app.get("/oauth/:code", (req, res, next) => {
-  console.log(req);
+  // console.log(req);
   console.log("heroku oauth");
 
   const httpOptions = {
@@ -38,12 +38,12 @@ app.get("/oauth/:code", (req, res, next) => {
       httpOptions
     )
     .then((result) => {
-      console.log(`Status: ${result.status}`);
-      console.log("Body: ", result.data);
+      // console.log(`Status: ${result.status}`);
+      // console.log("Body: ", result.data);
       res.json(result.data);
     })
     .catch((err) => {
-      console.error(err);
+      // console.error(err);
       throw new Error(err);
     });
 });
