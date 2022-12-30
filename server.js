@@ -53,12 +53,13 @@ app.post("/users/:access_token", (req, res) => {
   console.log("heroku users");
 
   const options = {
+    baseURL: "https://zoom.us",
     method: "post",
     url: `/v2/users?access_token=${req.params.access_token}`,
     headers: {
       "content-type": "application/json",
     },
-    data = {
+    data: {
       action: "create",
       user_info: {
         email: "jchill@example.com",
@@ -76,7 +77,7 @@ app.post("/users/:access_token", (req, res) => {
   }; 
 
   axios
-    .post(options)
+    .request(options)
     .then((result) => {
       console.log(`Status: ${result.status}`);
       console.log("Body: ", result.data);
