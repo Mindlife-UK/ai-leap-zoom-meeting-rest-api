@@ -64,18 +64,18 @@ app.post("/users/:access_token", (req, res) => {
     //   access_token: req.params.access_token
     // },
     data: {
-      action: "create",
+      action: "custCreate",
       user_info: {
         email: "jchill@example.com",
         first_name: "Jill",
         last_name: "Chill",
-        // password: "if42!LfH@",
+        password: "if42!LfH@",
         type: 1,
         feature: {
-          zoom_phone: true,
-          zoom_one_type: 16,
+          zoom_phone: false,
+          // zoom_one_type: 16,
         },
-        plan_united_type: "1",
+        // plan_united_type: "1",
       },
     }
   }; 
