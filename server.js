@@ -65,9 +65,9 @@ app.post("/users/:access_token", (req, res) => {
   sendAxiosRequest(axiosOptions);
 });
 
-sendAxiosRequest = (axiosOptions) => {
+const sendAxiosRequest = (axiosOptions) => {
   axios
-    .post(axiosOptions)
+    .request(axiosOptions)
     .then((result) => {
       console.log(result);
       console.log(`Status: ${result.status}`);
