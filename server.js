@@ -80,7 +80,7 @@ app.post("/users/:access_token", (req, res) => {
 
   axios
     .post(
-      `https://zoom.us/v2/users?access_token=${req.params.access_token}`,
+      `https://zoom.us/v2/users`,
       JSON.stringify(data),
       options
     )
