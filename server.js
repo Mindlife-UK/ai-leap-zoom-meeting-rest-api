@@ -52,6 +52,22 @@ app.post("/users/:access_token", (req, res) => {
   console.log(req.data);
   console.log("heroku users");
 
+  const data = {
+    action: "create",
+    user_info: {
+      email: "kevin@help.org.uk",
+      first_name: "Jill",
+      last_name: "Chill",
+      password: "if42!LfH@",
+      type: 1,
+      feature: {
+        zoom_phone: false,
+        // zoom_one_type: 16,
+      },
+      // plan_united_type: "1",
+    },
+  };
+
   const options = {
     baseURL: "http://api.zoom.us",
     method: "post",
@@ -63,27 +79,13 @@ app.post("/users/:access_token", (req, res) => {
     // params: {
     //   access_token: req.params.access_token
     // },
-    data: {
-      action: "create",
-      user_info: {
-        email: "kevin@help.org.uk",
-        first_name: "Jill",
-        last_name: "Chill",
-        password: "if42!LfH@",
-        type: 1,
-        feature: {
-          zoom_phone: false,
-          // zoom_one_type: 16,
-        },
-        // plan_united_type: "1",
-      },
-    }
-  }; 
+    data: data,
+  };
 
   axios
-    .post(options)
+    .post(`http://api.zoom.us//v2/users?access_token=${req.params.access_token}`, options)
     .then((result) => {
-      console.log(result)
+      console.log(result);
       console.log(`Status: ${result.status}`);
       console.log("Body: ", result.data);
       res.json(result.data);
