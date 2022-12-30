@@ -57,11 +57,12 @@ app.post("/users/:access_token", (req, res) => {
     method: "post",
     url: `/v2/users`,
     headers: {
+      Authorization: `BEARER ${req.params.access_token}`,
       "content-type": "application/json",
     },
-    params: {
-      access_token: req.params.access_token
-    },
+    // params: {
+    //   access_token: req.params.access_token
+    // },
     data: {
       action: "create",
       user_info: {
