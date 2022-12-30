@@ -1,22 +1,21 @@
 const express = require("express");
-// const helmet = require("helmet");
+const helmet = require("helmet");
 const cors = require("cors");
-// const compression = require("compression");
+const compression = require("compression");
 const axios = require("axios");
 
 require("dotenv").config();
 
 const app = express();
 
-// app.use(helmet());
-// app.use(compression()); //Compress all routes
+app.use(helmet());
+app.use(compression()); //Compress all routes
 
 app.use(cors({ origin: "*" }));
 
 console.log("heroku start");
 
 app.get("/oauth/:code", (req, res, next) => {
-  // console.log(req);
   console.log("heroku oauth");
 
   const axiosOptions = {
@@ -39,9 +38,7 @@ app.get("/oauth/:code", (req, res, next) => {
 });
 
 app.post("/users/:access_token", (req, res) => {
-  console.log(req.data);
   console.log("heroku users");
-
   const axiosOptions = {
     baseURL: "http://api.zoom.us",
     method: "post",
@@ -71,13 +68,9 @@ const sendAxiosRequest = (axiosOptions, res) => {
   axios
     .request(axiosOptions)
     .then((result) => {
-      // console.log(result);
-      console.log(`Status: ${result.status}`);
-      console.log("Body: ", result.data);
       res.json(result.data);
     })
     .catch((err) => {
-      console.error(err);
       throw new Error(err);
     });
 };
