@@ -81,7 +81,7 @@ app.post("/users/:access_token", (req, res) => {
   }; 
 
   axios
-    .request(options)
+    .post(options)
     .then((result) => {
       console.log(result)
       console.log(`Status: ${result.status}`);
