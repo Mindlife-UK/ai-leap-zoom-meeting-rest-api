@@ -80,6 +80,7 @@ app.post("/meetings/:access_token", (req, res) => {
       duration: 30,
       timezone: "Europe/Paris",
       type:2,
+      password: "123456abcde",
       settings: {
         allow_multiple_devices: false,
         approval_type: 2,
