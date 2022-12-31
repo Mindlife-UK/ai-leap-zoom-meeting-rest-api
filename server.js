@@ -65,12 +65,12 @@ app.post("/users/:access_token", (req, res) => {
 });
 
 app.post("/meetings/:access_token/:userId", (req, res) => {
-  console.log("heroku users");
+  console.log("heroku meetings");
   const axiosOptions = {
     baseURL: "http://api.zoom.us/v2",
     method: "post",
     // url: `/users/${req.params.userId}/meetings`,
-    url: `/users/me/meetings`,
+    url: `/users/numerized@gmail.com/meetings`,
     headers: {
       Authorization: `BEARER ${req.params.access_token}`,
       "content-type": "application/json",
@@ -82,7 +82,7 @@ app.post("/meetings/:access_token/:userId", (req, res) => {
       password: false,
       settings: {
         allow_multiple_devices: false,
-        alternative_hosts: "jchill@example.com;numerized@gmail.com",
+        alternative_hosts: "numerized@gmail.com",
         alternative_hosts_email_notification: true,
         approval_type: 2,
         audio: "voip",
