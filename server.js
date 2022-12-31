@@ -37,7 +37,6 @@ app.get("/oauth/:code", (req, res, next) => {
   sendAxiosRequest(axiosOptions, res);
 });
 
-
 app.get("/token/:access_token", (req, res) => {
   console.log("heroku token 2");
   const axiosOptions = {
@@ -49,8 +48,8 @@ app.get("/token/:access_token", (req, res) => {
       "content-type": "application/json",
     },
     data: {
-      ttl:7776000,
-      type:'zak'
+      ttl: 7776000,
+      type: "zak",
     },
   };
   sendAxiosRequest(axiosOptions, res);
@@ -127,14 +126,16 @@ app.get("/meetings/:access_token", (req, res) => {
   };
   // sendAxiosRequest(axiosOptions, res);
   axios
-  .post('http://api.zoom.us/v2/users/me/meetings', axiosOptions.data, axiosOptions.headers)
-  .then((result) => {
-    console.log(result)
-    res.json(result.data);
-  })
-  .catch((err) => {
-    throw new Error(err);
-  });
+    .post("http://api.zoom.us/v2/users/me/meetings", axiosOptions.data, {
+      headers: axiosOptions.headers,
+    })
+    .then((result) => {
+      console.log(result);
+      res.json(result.data);
+    })
+    .catch((err) => {
+      throw new Error(err);
+    });
 });
 
 const sendAxiosRequest = (axiosOptions, res) => {
