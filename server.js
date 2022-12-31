@@ -86,7 +86,7 @@ app.post("/meetings/:access_token", (req, res) => {
         approval_type: 2,
         audio: "voip",
         calendar_type: 1,
-        private_meeting: true,
+        private_meeting: false,
         contact_email: "numerized@gmail.com",
         contact_name: "Kévin Perrée",
         email_notification: true,
