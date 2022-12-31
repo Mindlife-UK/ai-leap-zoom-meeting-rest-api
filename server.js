@@ -78,7 +78,6 @@ app.post("/meetings/:access_token", (req, res) => {
     data: {
       agenda: "My AiLeap Meeting",
       duration: 30,
-      password: false,
       settings: {
         allow_multiple_devices: false,
         alternative_hosts: "numerized@gmail.com",
