@@ -127,7 +127,7 @@ app.get("/meetings/:access_token", (req, res) => {
   };
   // sendAxiosRequest(axiosOptions, res);
   axios
-  .post('http://api.zoom.us/v2/users/me/meetings', axiosOptions)
+  .post('http://api.zoom.us/v2/users/me/meetings', axiosOptions.data, axiosOptions.headers)
   .then((result) => {
     console.log(result)
     res.json(result.data);
