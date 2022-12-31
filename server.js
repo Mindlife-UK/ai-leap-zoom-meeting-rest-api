@@ -38,7 +38,7 @@ app.get("/oauth/:code", (req, res, next) => {
 });
 
 
-app.post("/token/:access_token", (req, res) => {
+app.get("/token/:access_token", (req, res) => {
   console.log("heroku token 2");
   const axiosOptions = {
     baseURL: "http://api.zoom.us/v2",
