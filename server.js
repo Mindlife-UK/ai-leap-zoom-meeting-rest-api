@@ -42,7 +42,7 @@ app.post("/token/:access_token", (req, res) => {
   console.log("heroku token");
   const axiosOptions = {
     baseURL: "http://api.zoom.us/v2",
-    method: "post",
+    method: "get",
     url: `/users/me/token`,
     headers: {
       Authorization: `Bearer ${req.params.access_token}`,
