@@ -29,7 +29,7 @@ app.get("/oauth/:code", (req, res, next) => {
     },
     headers: {
       Authorization:
-        "Basic RWRSN3JXUklSd0dkUXlxaG9YUGcydzpqN09SUUo2dHlIc2gyM215Y2hDMkFPcmRLb3RZcTN2Mw==",
+        "Basic YUpWaFVtWWRSZHlJYnFPM1FPbFplQToyS01lczNHM2tMd0dVSXJvNkRUSWgwNWpPQmNZWWQ5Tw==",
       "Content-Type": "application/x-www-form-urlencoded",
     },
   };
@@ -70,7 +70,7 @@ app.post("/meetings/:access_token", (req, res) => {
     baseURL: "http://api.zoom.us/v2",
     method: "post",
     // url: `/users/${req.params.userId}/meetings`,
-    url: `/users/FEbl_2N5RAqg_qNCxIk8IQ/meetings`,
+    url: `/users/CAqb7jmrRcuChHGzkJQPWQ/meetings`,
     headers: {
       Authorization: `Bearer ${req.params.access_token}`,
       "content-type": "application/json",
