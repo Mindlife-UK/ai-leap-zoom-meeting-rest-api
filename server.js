@@ -141,7 +141,6 @@ const sendAxiosRequest = (axiosOptions, res) => {
   axios
     .request(axiosOptions)
     .then((result) => {
-      console.log(result)
       res.json(result.data);
     })
     .catch((err) => {
