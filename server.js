@@ -104,7 +104,7 @@ app.post("/meetings/:access_token", (req, res) => {
         host_save_video_order: true,
         alternative_host_update_polls: true,
       },
-      start_time: Date.now(),
+      // start_time: Date.now(),
       topic: "My Meeting Topic",
     },
   };
