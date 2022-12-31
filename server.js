@@ -44,7 +44,7 @@ app.post("/users/:access_token", (req, res) => {
     method: "post",
     url: `/users`,
     headers: {
-      Authorization: `BEARER ${req.params.access_token}`,
+      Authorization: `Bearer ${req.params.access_token}`,
       "content-type": "application/json",
     },
     data: {
@@ -72,7 +72,7 @@ app.post("/meetings/:access_token", (req, res) => {
     // url: `/users/${req.params.userId}/meetings`,
     url: `/users/FEbl_2N5RAqg_qNCxIk8IQ/meetings`,
     headers: {
-      Authorization: `BEARER ${req.params.access_token}`,
+      Authorization: `Bearer ${req.params.access_token}`,
       "content-type": "application/json",
     },
     data: {
