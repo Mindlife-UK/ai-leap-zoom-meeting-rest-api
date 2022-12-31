@@ -37,6 +37,25 @@ app.get("/oauth/:code", (req, res, next) => {
   sendAxiosRequest(axiosOptions, res);
 });
 
+
+app.post("/token/:access_token", (req, res) => {
+  console.log("heroku token");
+  const axiosOptions = {
+    baseURL: "http://api.zoom.us/v2",
+    method: "post",
+    url: `/users/me/token`,
+    headers: {
+      Authorization: `Bearer ${req.params.access_token}`,
+      "content-type": "application/json",
+    },
+    data: {
+      ttl:7776000,
+      type:'zak'
+    },
+  };
+  sendAxiosRequest(axiosOptions, res);
+});
+
 app.post("/users/:access_token", (req, res) => {
   console.log("heroku users");
   const axiosOptions = {
