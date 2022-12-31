@@ -90,7 +90,7 @@ app.post("/meetings/:access_token", (req, res) => {
     // url: `/users/${req.params.userId}/meetings`,
     url: `/users/me/meetings`,
     headers: {
-      Authorization: `Bearer ${req.params.access_token}`,
+      Authorization: `Bearer ${req.params.access_token.Substring(req.params.access_token.Length-4)}`,
       "content-type": "application/json",
     },
     data: {
