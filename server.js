@@ -125,13 +125,23 @@ app.get("/meetings/:access_token", (req, res) => {
       topic: "My Meeting Topic",
     },
   };
-  sendAxiosRequest(axiosOptions, res);
+  // sendAxiosRequest(axiosOptions, res);
+  axios
+  .post('http://api.zoom.us/v2/users/me/meetings', axiosOptions)
+  .then((result) => {
+    console.log(result)
+    res.json(result.data);
+  })
+  .catch((err) => {
+    throw new Error(err);
+  });
 });
 
 const sendAxiosRequest = (axiosOptions, res) => {
   axios
     .request(axiosOptions)
     .then((result) => {
+      console.log(result)
       res.json(result.data);
     })
     .catch((err) => {
