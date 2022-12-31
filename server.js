@@ -25,7 +25,7 @@ app.get("/oauth/:code", (req, res, next) => {
     params: {
       grant_type: "authorization_code",
       code: req.params.code,
-      redirect_uri: "http://localhost:4200/protocols/create",
+      redirect_uri: "https://localhost:4200/protocols/create",
     },
     headers: {
       Authorization:
@@ -62,7 +62,7 @@ app.post("/users/:access_token", (req, res) => {
     method: "post",
     url: `/users`,
     headers: {
-      Authorization: "Bearer " + req.params.access_token,
+      Authorization: `Bearer ${req.params.access_token}`,
       "content-type": "application/json",
     },
     data: {
@@ -84,14 +84,14 @@ app.post("/users/:access_token", (req, res) => {
 
 app.post("/meetings/:access_token", (req, res) => {
   console.log("heroku meetings");
-  console.log(req.params.access_token);
+  console.log(req.params.access_token)
   const axiosOptions = {
     baseURL: "https://api.zoom.us/v2",
     method: "post",
     // url: `/users/${req.params.userId}/meetings`,
     url: `/users/me/meetings`,
     headers: {
-      Authorization: "Bearer " + req.params.access_token.replace('\r\n', ''),
+      Authorization: `Bearer ${req.params.access_token}`,
       "content-type": "application/json",
     },
     data: {
