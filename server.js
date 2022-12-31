@@ -25,7 +25,7 @@ app.get("/oauth/:code", (req, res, next) => {
     params: {
       grant_type: "authorization_code",
       code: req.params.code,
-      redirect_uri: "https://89cb-2a02-8429-3583-7001-8435-6b68-6bd9-f3aa.eu.ngrok.io/protocols/create",
+      redirect_uri: "https://267b-2a02-8429-3583-7001-8435-6b68-6bd9-f3aa.eu.ngrok.io/protocols/create",
     },
     headers: {
       Authorization:
