@@ -78,6 +78,8 @@ app.post("/meetings/:access_token", (req, res) => {
     data: {
       agenda: "My AiLeap Meeting",
       duration: 30,
+      timezone: "Europe/Paris",
+      type:2,
       settings: {
         allow_multiple_devices: false,
         approval_type: 2,
