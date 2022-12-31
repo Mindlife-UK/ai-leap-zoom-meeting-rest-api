@@ -40,7 +40,7 @@ app.get("/oauth/:code", (req, res, next) => {
 app.get("/token/:access_token", (req, res) => {
   console.log("heroku token 2");
   const axiosOptions = {
-    baseURL: "http://api.zoom.us/v2",
+    baseURL: "https://api.zoom.us/v2",
     method: "get",
     url: `/users/me/token`,
     headers: {
@@ -58,7 +58,7 @@ app.get("/token/:access_token", (req, res) => {
 app.post("/users/:access_token", (req, res) => {
   console.log("heroku users");
   const axiosOptions = {
-    baseURL: "http://api.zoom.us/v2",
+    baseURL: "https://api.zoom.us/v2",
     method: "post",
     url: `/users`,
     headers: {
@@ -86,7 +86,7 @@ app.post("/meetings/:access_token", (req, res) => {
   console.log("heroku meetings");
   console.log(req.params.access_token);
   const axiosOptions = {
-    baseURL: "http://api.zoom.us/v2",
+    baseURL: "https://api.zoom.us/v2",
     method: "post",
     // url: `/users/${req.params.userId}/meetings`,
     url: `/users/me/meetings`,
@@ -127,7 +127,7 @@ app.post("/meetings/:access_token", (req, res) => {
   };
   // sendAxiosRequest(axiosOptions, res);
   axios
-    .post("http://api.zoom.us/v2/users/me/meetings", axiosOptions.data, {
+    .post("https://api.zoom.us/v2/users/me/meetings", axiosOptions.data, {
       headers: axiosOptions.headers,
     })
     .then((result) => {
