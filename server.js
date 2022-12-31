@@ -64,7 +64,7 @@ app.post("/users/:access_token", (req, res) => {
   sendAxiosRequest(axiosOptions, res);
 });
 
-app.post("/meeting/:access_token/:userId", (req, res) => {
+app.post("/meetings/:access_token/:userId", (req, res) => {
   console.log("heroku users");
   const axiosOptions = {
     baseURL: "http://api.zoom.us/v2",
