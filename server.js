@@ -29,7 +29,7 @@ app.get("/oauth/:code", (req, res, next) => {
     },
     headers: {
       Authorization:
-        "Basic YUpWaFVtWWRSZHlJYnFPM1FPbFplQToyS01lczNHM2tMd0dVSXJvNkRUSWgwNWpPQmNZWWQ5Tw==",
+        "Basic X0tiZlNjd21UajI1Sk05TEJhZEdJZzpMc013VjFPdzBkUW5LNENObUlIallSSFp6ajNFcXZTaw==",
       "Content-Type": "application/x-www-form-urlencoded",
     },
   };
