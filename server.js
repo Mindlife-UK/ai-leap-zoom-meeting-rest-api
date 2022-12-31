@@ -78,7 +78,7 @@ app.post("/meetings/:access_token", (req, res) => {
     data: {
       agenda: "My AiLeap Meeting",
       default_password: false,
-      duration: 60,
+      duration: 30,
       password: false,
       settings: {
         allow_multiple_devices: false,
