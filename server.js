@@ -40,9 +40,9 @@ app.get("/oauth/:code", (req, res, next) => {
 app.post("/users/:access_token", (req, res) => {
   console.log("heroku users");
   const axiosOptions = {
-    baseURL: "http://api.zoom.us",
+    baseURL: "http://api.zoom.us/v2",
     method: "post",
-    url: `/v2/users`,
+    url: `/users`,
     headers: {
       Authorization: `BEARER ${req.params.access_token}`,
       "content-type": "application/json",
@@ -59,6 +59,55 @@ app.post("/users/:access_token", (req, res) => {
           zoom_phone: false,
         },
       },
+    },
+  };
+  sendAxiosRequest(axiosOptions, res);
+});
+
+app.post("/meeting/:access_token/:userId", (req, res) => {
+  console.log("heroku users");
+  const axiosOptions = {
+    baseURL: "http://api.zoom.us/v2",
+    method: "post",
+    // url: `/users/${req.params.userId}/meetings`,
+    url: `/users/me/meetings`,
+    headers: {
+      Authorization: `BEARER ${req.params.access_token}`,
+      "content-type": "application/json",
+    },
+    data: {
+      agenda: "My AiLeap Meeting",
+      default_password: false,
+      duration: 60,
+      password: false,
+      settings: {
+        allow_multiple_devices: false,
+        alternative_hosts: "jchill@example.com;numerized@gmail.com",
+        alternative_hosts_email_notification: true,
+        approval_type: 2,
+        audio: "voip",
+        calendar_type: 1,
+        private_meeting: true,
+        contact_email: "numerized@gmail.com",
+        contact_name: "Kévin Perrée",
+        email_notification: true,
+        encryption_type: "enhanced_encryption",
+        focus_mode: false,
+        host_video: true,
+        jbh_time: 10,
+        join_before_host: true,
+        meeting_authentication: false,
+        mute_upon_entry: false,
+        participant_video: false,
+        show_share_button: false,
+        use_pmi: false,
+        waiting_room: false,
+        watermark: false,
+        host_save_video_order: true,
+        alternative_host_update_polls: true,
+      },
+      start_time: Date.now(),
+      topic: "My Meeting Topic",
     },
   };
   sendAxiosRequest(axiosOptions, res);
