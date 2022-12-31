@@ -70,7 +70,7 @@ app.post("/meetings/:access_token", (req, res) => {
     baseURL: "http://api.zoom.us/v2",
     method: "post",
     // url: `/users/${req.params.userId}/meetings`,
-    url: `/users/CAqb7jmrRcuChHGzkJQPWQ/meetings`,
+    url: `/users/me/meetings`,
     headers: {
       Authorization: `Bearer ${req.params.access_token}`,
       "content-type": "application/json",
