@@ -123,7 +123,7 @@ app.post("/meetings/:access_token", (req, res) => {
       // // },
       // start_time: "2023-01-25T07:32:55Z",
       // topic: "My Meeting Topic",
-      topic: "Corona testing 2",
+      topic: "Test Meeting",
       duration: 60,
       settings: {
         mute_upon_entry: true,
