@@ -25,7 +25,8 @@ app.get("/oauth/:code", (req, res, next) => {
     params: {
       grant_type: "authorization_code",
       code: req.params.code,
-      redirect_uri: "https://267b-2a02-8429-3583-7001-8435-6b68-6bd9-f3aa.eu.ngrok.io/protocols/create",
+      redirect_uri:
+        "https://267b-2a02-8429-3583-7001-8435-6b68-6bd9-f3aa.eu.ngrok.io/protocols/create",
     },
     headers: {
       Authorization:
@@ -82,7 +83,7 @@ app.post("/users/:access_token", (req, res) => {
   sendAxiosRequest(axiosOptions, res);
 });
 
-app.post("/meetings/:access_token", (req, res) => {
+app.post("/meetings/:access_token", async (req, res) => {
   console.log("heroku meetings");
   console.log(req.params.access_token);
   const axiosOptions = {
@@ -133,17 +134,19 @@ app.post("/meetings/:access_token", (req, res) => {
     },
   };
   // sendAxiosRequest(axiosOptions, res);
-  axios
-    .post("https://api.zoom.us/v2/users/me/meetings", axiosOptions.data, {
-      headers: axiosOptions.headers,
-    })
-    .then((result) => {
-      console.log(result);
-      res.json(result.data);
-    })
-    .catch((err) => {
-      throw new Error(err);
-    });
+
+  try {
+    const result = await axios.post(
+      "https://api.zoom.us/v2/users/me/meetings",
+      axiosOptions.data,
+      {
+        headers: axiosOptions.headers,
+      }
+    );
+    res.json(result.data);
+  } catch (error) {
+    res.error(error);
+  }
 });
 
 const sendAxiosRequest = (axiosOptions, res) => {
