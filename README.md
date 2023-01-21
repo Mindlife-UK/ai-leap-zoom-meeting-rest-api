@@ -41,3 +41,19 @@ $ npm install
 $ npm start or node server.js
 ```
 
+
+
+```shell
+curl --location --request POST 'https://api.zoom.us/v2/users/me/meetings' \
+--header 'Authorization: Bearer eyJhbGciOiJIUzUxMiIsInYiOiIyLjAiLCJraWQiOiI2NzM1MmIwZi0zOGVkLTQ5Y2EtOTIxMC1iYjczYWQyNGEwNjkifQ.eyJ2ZXIiOjcsImF1aWQiOiI0NzM3NmM1YTY1ODY2MGMxYzk1OWU0NDE0N2E0YzAzYiIsImNvZGUiOiJjNUNkcHNxaGxxanpZQmFKSUdSUlY2VUVjSXl0ODg5b0EiLCJpc3MiOiJ6bTpjaWQ6X0tiZlNjd21UajI1Sk05TEJhZEdJZyIsImdubyI6MCwidHlwZSI6MCwidGlkIjowLCJhdWQiOiJodHRwczovL29hdXRoLnpvb20udXMiLCJ1aWQiOiJDQXFiN2ptclJjdUNoSEd6a0pRUFdRIiwibmJmIjoxNjcyNzg2MDE3LCJleHAiOjE2NzI3ODk2MTcsImlhdCI6MTY3Mjc4NjAxNywiYWlkIjoiNzF1bUMyUVZRU2VCNU1zX3UtcnhYQSIsImp0aSI6IjQ2ZjBhMTk0LWMyNzMtNGZmMS04NjFlLWYwNjkyNTM3NWVhMyJ9' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+   "topic": "Corona testing 2",
+   "duration": 60,
+   "settings": {
+      "mute_upon_entry": true,
+      "join_before_host": true
+   },
+   "password": "test-123"
+}'
+```

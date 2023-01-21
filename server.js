@@ -15,7 +15,7 @@ app.use(cors({ origin: "*" }));
 
 console.log("heroku start");
 
-app.get("/oauth/:code", (req, res) => {
+app.get("/oauth/:code", (req, res, next) => {
   console.log("heroku oauth");
 
   const axiosOptions = {
@@ -150,12 +150,14 @@ app.post("/meetings/:access_token", async (req, res) => {
 });
 
 const sendAxiosRequest = (axiosOptions, res) => {
-  try {
-    const result = axios.request(axiosOptions);
-    res.json(result.data);
-  } catch (err) {
-    res.status(400).send(err);
-  }
+  axios
+    .request(axiosOptions)
+    .then((result) => {
+      res.json(result.data);
+    })
+    .catch((err) => {
+      throw new Error(err);
+    });
 };
 
 app.listen(process.env.PORT || 3000);
