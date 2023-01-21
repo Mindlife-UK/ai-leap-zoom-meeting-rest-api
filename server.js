@@ -149,15 +149,14 @@ app.post("/meetings/:access_token", async (req, res) => {
   }
 });
 
-const sendAxiosRequest = (axiosOptions, res) => {
-  axios
-    .request(axiosOptions)
-    .then((result) => {
-      res.json(result.data);
-    })
-    .catch((err) => {
-      throw new Error(err);
-    });
+const sendAxiosRequest = async (axiosOptions, res) => {
+  try {
+    const result = await axios.request(axiosOptions);
+
+    res.json(result.data);
+  } catch (error) {
+    res.status(400).send(error);
+  }
 };
 
 app.listen(process.env.PORT || 3000);
