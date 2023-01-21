@@ -145,7 +145,7 @@ app.post("/meetings/:access_token", async (req, res) => {
     );
     res.json(result.data);
   } catch (error) {
-    throw new Error(error);
+    res.status(400).send(error);
   }
 });
 
