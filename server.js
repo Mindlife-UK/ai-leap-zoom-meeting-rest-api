@@ -38,6 +38,28 @@ app.get("/oauth/:code", (req, res, next) => {
   sendAxiosRequest(axiosOptions, res);
 });
 
+
+app.get("/refresh/:token", (req, res, next) => {
+  console.log("heroku oauth refresh token");
+
+  const axiosOptions = {
+    baseURL: "https://zoom.us",
+    method: "post",
+    url: `/oauth/token`,
+    params: {
+      grant_type: "refresh_token",
+      refresh_token: req.params.token
+    },
+    headers: {
+      Authorization:
+        "Basic X0tiZlNjd21UajI1Sk05TEJhZEdJZzpMc013VjFPdzBkUW5LNENObUlIallSSFp6ajNFcXZTaw==",
+      "Content-Type": "application/x-www-form-urlencoded",
+    },
+  };
+
+  sendAxiosRequest(axiosOptions, res);
+});
+
 app.get("/token/:access_token", (req, res) => {
   console.log("heroku token 2");
   const axiosOptions = {
